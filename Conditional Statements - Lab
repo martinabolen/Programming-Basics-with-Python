@@ -1,0 +1,107 @@
+1.
+grade = float(input())
+
+if grade >= 5.50:
+    print('Excellent!')
+    
+2.
+a = int(input())
+b = int(input())
+
+if a > b:
+    print(a)
+else:
+    print(b)
+
+
+3.
+number = int(input())
+
+if number % 2 == 0:
+    print('even')
+else:
+    print('odd')
+  
+4.
+number = int(input())
+
+if number == 1:
+    print('one')
+elif number == 2:
+    print('two')
+elif number == 3:
+    print('three')
+elif number == 4:
+    print('four')
+elif number == 5:
+    print('five')
+elif number == 6:
+    print('six')
+elif number == 7:
+    print('seven')
+elif number == 8:
+    print('eight')
+elif number == 9:
+    print('nine')
+else:
+    print('number too big')
+    
+    
+5.
+number = int(input())
+
+if number < 100:
+    print('Less than 100')
+elif number <= 200:
+    print('Between 100 and 200')
+else:
+    print('Greater than 200')
+    
+ 6.
+ password = input()
+
+if password == 's3cr3t!P@ssw0rd':
+    print('Welcome')
+else:
+    print('Wrong password!')
+    
+ 7.
+ type_figure = input()
+area = 0
+from math import pi
+if type_figure == 'square':
+    fiure_dimensions = float(input())
+    area = fiure_dimensions*fiure_dimensions
+elif type_figure == 'rectangle':
+    fiure_dimensions = float(input())
+    figure_dimensions2 = float(input())
+    area = fiure_dimensions*figure_dimensions2
+elif type_figure == 'circle':
+    fiure_dimensions = float(input())
+    area = pi*fiure_dimensions*fiure_dimensions
+elif type_figure == 'triangle':
+    fiure_dimensions = float(input())
+    figure_dimensions2 = float(input())
+    area = (fiure_dimensions / 2) * figure_dimensions2
+
+print(f'{area:.3f}')
+
+8.
+excursion_price = float(input())
+puzzle = int(input())
+speaking_doll = int(input())
+teddy_bear = int(input())
+minion = int(input())
+truck = int(input())
+
+total_count = puzzle + speaking_doll + teddy_bear + minion + truck
+total_price = (puzzle * 2.60 + speaking_doll * 3 + teddy_bear * 4.10 + minion * 8.20 + truck * 2)
+
+if total_count >= 50:
+    total_price*=0.75
+total_price*=0.9
+
+if total_price >= excursion_price:
+    print(f'Yes! {total_price-excursion_price:.2f} lv left.')
+else:
+    print(f'Not enough money! {excursion_price-total_price:.2f} lv needed.')
