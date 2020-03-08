@@ -1,0 +1,60 @@
+1.
+name = input()
+print('Hello, ' + name + '!')
+
+2.
+first_name = input()
+last_name = input()
+age = input()
+town = input()
+output = 'You are ' + first_name + ' ' + last_name + ', a ' + age + '-years old person from ' + town + '.'
+print(output)
+
+3.
+side = int(input())
+area = side * side
+print(area)
+
+4.
+number = float(input())
+santimeters = number * 2.54
+print(santimeters)
+
+5.
+name = input()
+projects_count = int(input())
+
+time_needed = projects_count * 3
+
+print (f'The architect {name} will need {time_needed} hours to complete {projects_count} project/s.')
+
+6.
+dog_count = int(input())
+animals_count = int(input())
+
+dog_food = dog_count * 2.5
+animals_food = animals_count * 4
+total_cost = dog_food + animals_food
+print(f'{total_cost:.2f} lv.')
+
+7.
+quadrat_meters = float(input())
+
+price = quadrat_meters * 7.61
+discount = price * 0.18
+final_price = price - discount
+
+print(f'The final price is: {final_price:.2f} lv.')
+print(f'The discount is: {discount:.2f} lv.')
+
+8.
+long = int(input())
+wight = int(input())
+high = int(input())
+procent_for_volume = float(input())
+
+volume = long * wight * high
+liters = volume * 0.001
+procent = procent_for_volume * 0.01
+needed_liters = liters * (1-procent)
+print(round((needed_liters),3))
