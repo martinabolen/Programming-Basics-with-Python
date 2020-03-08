@@ -1,0 +1,77 @@
+1.
+usd = float(input())
+bgn = usd * 1.79549
+print(round((bgn),2))
+
+2.
+rad = float(input())
+from math import pi
+deg = rad * 180 / pi
+print(round(deg))
+
+3.
+x1 = float(input())
+y1 = float(input())
+x2 = float(input())
+y2 = float(input())
+
+length = abs(x1 - x2)
+width = abs(y1-y2)
+
+area = length * width
+perimeter = 2 * length + 2 * width
+print(f'{area:.2f}')
+print(f'{perimeter:.2f}')
+
+4.
+rectangle_tables = int(input())
+length_rectangle_tables = float(input())
+width_rectangle_tables = float(input())
+
+cover_area = rectangle_tables * (length_rectangle_tables + 2 * 0.30) * (width_rectangle_tables + 2 * 0.30)
+couch_area = rectangle_tables * (length_rectangle_tables / 2) * (length_rectangle_tables / 2)
+dol_price = cover_area * 7 + couch_area * 9
+lv_price = dol_price * 1.85
+print(f'{dol_price:.2f} USD')
+print(f'{lv_price:.2f} BGN')
+
+5.
+l = float(input())
+w = float(input())
+a = float(input())
+
+hall_size = (l * 100) * (w * 100)
+garderobe_size = (a * 100) * (a * 100)
+bench_size = hall_size / 10
+free_space = hall_size - garderobe_size - bench_size
+dancers_count = free_space / (40 + 7000)
+from math import floor
+print(floor(dancers_count))
+
+6.
+days = int(input())
+pastry_cooks = int(input())
+cakes = int(input())
+waffles = int(input())
+pancakes = int(input())
+
+cakes_price = cakes * 45
+waffles_price = waffles * 5.80
+pancakes_price = pancakes * 3.20
+sum_for_one_day = pastry_cooks * (cakes_price + waffles_price + pancakes_price)
+sum_for_all_days = sum_for_one_day * days
+sum_after_costs = sum_for_all_days - (sum_for_all_days * 1/8)
+print(f'{sum_after_costs:.2f}')
+
+7.
+wiskey_price = float(input())
+beer_liters = float(input())
+wine_liters = float(input())
+rakia_liters = float(input())
+wiskey_liters= float(input())
+
+rakia_price = wiskey_price / 2
+wine_price = rakia_price - rakia_price * 0.4
+beer_price = rakia_price - rakia_price * 0.8
+total_price = (wiskey_price * wiskey_liters) + (beer_price * beer_liters ) + (wine_price * wine_liters) + (rakia_price * rakia_liters)
+print(f'{total_price:.2f}')
