@@ -1,0 +1,16 @@
+1.
+print(' Hello SoftUni ')
+
+2.
+print(( 3522 + 52353) * 23 - (2336 * 501 + 23432 - 6743) * 3)
+
+3.
+for x in range(1, 11):
+  print(x)
+  
+4.
+a = int(input())
+b = int(input())
+
+area = a * b
+print(area)
