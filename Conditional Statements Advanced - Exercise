@@ -1,1 +1,334 @@
+1.
+x1 = float(input())
+y1 = float(input())
+x2 = float(input())
+y2 = float(input())
+x = float(input())
+y = float(input())
+
+if x==x1 or x==x2:
+    if y>=y1 and y<=y2:
+        print('Border')
+    else:
+        print('Inside / Outside')
+elif y==y1 or y==y2:
+    if x>=x1 and x<=x2:
+         print('Border')
+    else:
+         print('Inside / Outside')
+else:
+    print('Inside / Outside')
+    
+    2.
+    type_projection=input()
+count_r=int(input())
+count_c=int(input())
+price_premiere=12
+price_normal=7.5
+price_discount=5
+price=0
+
+if type_projection == 'Premiere':
+    price=price_premiere*count_r*count_c
+elif type_projection =='Normal':
+    price=price_normal*count_r*count_c
+elif type_projection == 'Discount':
+        price=price_discount*count_r*count_c
+
+print(f'{price:.2f} lv')
+
+
+3.
+degrees = int(input())
+time = input()
+outfit=0
+shoes=0
+
+if 10 <= degrees <= 18:
+    if time == 'Morning':
+        outfit = 'Sweatshirt'
+        shoes = 'Sneakers'
+    elif time == 'Afternoon':
+        outfit = 'Shirt'
+        shoes = 'Moccasins'
+    elif time == 'Evening':
+        outfit = 'Shirt'
+        shoes= 'Moccasins'
+elif 18 < degrees <= 24:
+    if time == 'Morning':
+        outfit = 'Shirt'
+        shoes = 'Moccasins'
+    elif time == 'Afternoon':
+        outfit = 'T-Shirt'
+        shoes = 'Sandals'
+    elif time == 'Evening':
+        outfit = 'Shirt'
+        shoes= 'Moccasins'
+elif degrees >=25:
+    if time == 'Morning':
+        outfit = 'T-Shirt'
+        shoes = 'Sandals'
+    elif time == 'Afternoon':
+        outfit = 'Swim Suit'
+        shoes = 'Barefoot'
+    elif time == 'Evening':
+        outfit = 'Shirt'
+        shoes= 'Moccasins'
+
+print(f"It's {degrees} degrees, get your {outfit} and {shoes}.")
+
+4.
+flower_type = input()
+flower_count = int(input())
+budget = int(input())
+price = 0
+
+
+
+if flower_type=='Roses':
+    if flower_count >80:
+        price=5*0.9
+    else:
+        price=5
+elif flower_type=='Dahlias':
+    if flower_count >90:
+        price=3.8*0.85
+    else:
+        price=3
+elif flower_type=='Tulips':
+    if flower_count >80:
+        price =2.8* 0.85
+    else:
+        price=2.8
+elif  flower_type=='Narcissus':
+    if flower_count < 120:
+        price=3 + 3*0.15
+    else:
+        price=3
+elif flower_type=='Gladiolus':
+    if flower_count<80:
+        price=2.5+ 2.5*0.2
+    else:
+        price=2.5
+
+total_price = flower_count * price
+
+if budget >= total_price:
+    print(f'Hey, you have a great garden with {flower_count} {flower_type} and {budget-total_price:.2f} leva left.')
+elif budget < total_price:
+    print(f'Not enough money, you need {total_price-budget:.2f} leva more.')
+
+
+5.
+budget = int((input()))
+season = input()
+fishers_count = int(input())
+spring_price=3000
+summer_price=4200
+winter_price=2600
+price=0
+
+if fishers_count <=6:
+    if season == 'Spring':
+        price=spring_price*0.9
+    elif season == 'Summer' or season == 'Autumn':
+        price=summer_price*0.9
+    elif season == 'Winter':
+        price=winter_price*0.9
+elif fishers_count > 7 and fishers_count <=11:
+    if season == 'Spring':
+        price=spring_price*0.85
+    elif season == 'Summer' or season == 'Autumn':
+        price=summer_price*0.85
+    elif season == 'Winter':
+        price=winter_price*0.85
+elif fishers_count > 12:
+    if season == 'Spring':
+        price=spring_price*0.75
+    elif season == 'Summer' or season == 'Autumn':
+        price=summer_price*0.75
+    elif season == 'Winter':
+        price=winter_price*0.75
+
+if fishers_count%2==0 and season != 'Autumn':
+    price*=0.95
+else:
+    price
+
+
+if budget >= price:
+    print(f'Yes! You have {budget-price:.2f} leva left.')
+else:
+    print(f'Not enough money! You need {price-budget:.2f} leva.')
+    
+    
+ 6.
+ 
+budget = float(input())
+season = input().capitalize()
+costs=0
+destination=0
+holiday=0
+
+if budget <=100:
+    if season == 'Summer':
+        costs = budget*0.3
+        destination = 'Bulgaria'
+        holiday = 'Camp'
+    if season == 'Winter':
+        costs = budget*0.7
+        destination = 'Bulgaria'
+        holiday='Hotel'
+elif budget<=1000:
+    if season == 'Summer':
+        costs=budget*0.4
+        destination='Balkans'
+        holiday= 'Camp'
+    elif season == 'Winter':
+        costs=budget*0.8
+        destination='Balkans'
+        holiday='Hotel'
+elif budget > 1000:
+    costs=budget*0.9
+    destination='Europe'
+    holiday='Hotel'
+
+print(f'Somewhere in {destination}')
+print(f'{holiday} - {costs:.2f}')
+
+7.
+N1=int(input())
+N2=int(input())
+operation = input()
+result=0
+eo=0
+result2=0
+
+if operation=='+':
+    result = N1 + N2
+    if result % 2 == 0:
+        eo = 'even'
+    elif result % 2 != 0:
+        eo = 'odd'
+    print(f'{N1} {operation} {N2} = {result} - {eo}')
+elif operation == '-':
+    result = N1 - N2
+    if result % 2 == 0:
+        eo = 'even'
+    elif result % 2 != 0:
+        eo = 'odd'
+    print(f'{N1} {operation} {N2} = {result} - {eo}')
+elif operation == '*':
+    result = N1 * N2
+    if result % 2 == 0:
+        eo = 'even'
+    elif result % 2 != 0:
+        eo = 'odd'
+    print(f'{N1} {operation} {N2} = {result} - {eo}')
+elif N2==0 and operation == '/':
+    print(f'Cannot divide {N1} by zero')
+elif N2!=0 and operation == '/':
+    result = N1 / N2
+    print(f'{N1} / {N2} = {result:.2f}')
+elif N2==0 and operation == '%':
+        print(f'Cannot divide {N1} by zero')
+elif N2!=0 and operation == '%':
+    result = N1 % N2
+    print(f'{N1} % {N2} = {result} ')
+
+
+8.
+month = input()
+nigths = int(input())
+price_for_studio=0
+price_for_apartment=0
+
+if month == 'May' or month == 'October':
+    if nigths < 7:
+        price_for_studio=50
+        price_for_apartment=65
+    elif nigths > 7 and nigths < 14:
+        price_for_studio=50*0.95
+        price_for_apartment=65
+    elif nigths > 14:
+        price_for_studio=50*0.7
+        price_for_apartment=65*0.9
+elif month =='June'or month == 'September':
+    if nigths > 14:
+        price_for_studio = 75.20*0.8
+        price_for_apartment=68.7*0.9
+    else:
+        price_for_studio=75.20
+        price_for_apartment=68.7
+elif month =='July' or month =='August':
+    if nigths>14:
+        price_for_studio=76
+        price_for_apartment=77*0.9
+    else:
+        price_for_studio=76
+        price_for_apartment=77
+
+
+total_price_apart=price_for_apartment*nigths
+total_price_studio=price_for_studio*nigths
+
+print(f'Apartment: {total_price_apart:.2f} lv.')
+print(f'Studio: {total_price_studio:.2f} lv.')
+
+
+9.
+exam_hour = int(input())
+exam_munute = int(input())
+arrive_hour = int(input())
+arrive_minute = int(input())
+exam_tot_minutes = (exam_hour*60) + exam_munute
+arrive_tot_minutes = (arrive_hour*60) + arrive_minute
+total_difference = arrive_tot_minutes-exam_tot_minutes
+time= ''
+result=''
+
+if total_difference <- 30:
+    time='Early'
+elif total_difference<=0:
+    time='On time'
+else:
+    time='Late'
+
+if total_difference !=0:
+    hours_difference = abs(total_difference)//60
+    minutes_difference = abs(total_difference)%60
+    if hours_difference > 0:
+        result=f'{hours_difference}:{minutes_difference:02} hours'
+    else:
+        result=f'{minutes_difference} minutes'
+    if total_difference <0:
+        result+=' before the start'
+    else:
+        result+=' after the start'
+
+print(time)
+if result:
+    print(result)
+    
+    
+10.
+year=input()
+holidays=int(input())
+weekends_home=int(input())
+from math import floor
+
+
+weekends_not_home=48-weekends_home
+saturday_games=(48-weekends_home) * 3/4
+sunday_games=weekends_home
+holidays_games=holidays*2/3
+
+total_games=saturday_games+holidays_games+sunday_games
+
+if year=='leap':
+    total_games=floor(total_games+total_games*0.15)
+else:
+    total_games=floor(total_games)
+
+print(f'{total_games}')
 
