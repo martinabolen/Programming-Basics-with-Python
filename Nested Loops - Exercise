@@ -1,0 +1,103 @@
+1.
+n=int(input())
+number=1
+cols=1
+
+while number <= n:
+    for i in range(cols):
+        if number > n:
+            break
+        print(number,end=' ')
+        number+=1
+    print()
+    cols+=1
+    
+    
+ 2.
+ first_number=int(input())
+second_number=int(input())
+
+
+for number in range(first_number,second_number+1):
+    even_sum=0
+    odd_sum=0
+    counter=1
+    number_copy=number
+
+    while number_copy > 0:
+        last=number_copy % 10
+        if counter%2==0:
+            even_sum+=last
+        else:
+            odd_sum+=last
+        number_copy = number_copy // 10
+        counter+=1
+    if even_sum==odd_sum:
+        print(number,end = ' ')
+        
+     
+3.
+sum_primes=0
+sum_not_primes=0
+
+while True:
+    command=input()
+    if command=='stop':
+        break
+    number=int(command)
+    if number < 0:
+        print('Number is negative.')
+        continue
+
+    is_prime=True
+    for i in range(2,number):
+        if number%i==0:
+            is_prime=False
+            break
+    if is_prime:
+        sum_primes+=number
+    else:
+        sum_not_primes+=number
+
+print(f'Sum of all prime numbers is: {sum_primes}')
+print(f'Sum of all non prime numbers is: {sum_not_primes}')
+
+
+4.
+n=int(input())
+grades_sum=0
+counter=0
+
+while True:
+    command=input()
+    if command=='Finish':
+        break
+    presentation=command
+    current_grades_sum=0
+    for i in range(n):
+        grade = float(input())
+        current_grades_sum+=grade
+        grades_sum+=grade
+        counter+=1
+    average_grade=current_grades_sum/n
+    print(f'{presentation} - {average_grade:.2f}.')
+
+average = grades_sum/counter
+print(f'Student\'s final assessment is {average:.2f}.')
+
+
+
+5.
+n=int(input())
+l=int(input())
+
+for first in range(1,n):
+    for second in range(1,n):
+        for third in range(97,97 + l):
+            for fourth in range(97,97 + l):
+                for fifth in range(1,n+1):
+                    third_as_chr=chr(third)
+                    fourth_as_chr=chr(fourth)
+                    if fifth > first and fifth > second:
+                        print(f'{first}{second}{third_as_chr}{fourth_as_chr}{fifth}',end = ' ')
+
