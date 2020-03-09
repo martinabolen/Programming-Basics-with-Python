@@ -1,0 +1,154 @@
+1.
+book = input()
+stop=int(input())
+counter=0
+
+while counter < stop:
+    book2 = input()
+    if book==book2:
+        print(f'You checked {counter} books and found it.')
+        break
+    counter+=1
+
+if counter >= stop and book !=book2:
+    print('The book you search is not here!')
+    print(f'You checked {counter} books.')
+    
+   
+2.
+bad_evaluetion= int(input())
+sums_evaluetion=0
+bads_evaluetion=0
+counter=0
+has_failed=True
+grade=0
+solved_problems_count=0
+last_problem=0
+
+while bads_evaluetion<bad_evaluetion:
+    problem_name=input()
+    if problem_name=='Enough':
+        has_failed=False
+        break
+    grade = int(input())
+    if grade <=4:
+        bads_evaluetion+=1
+    sums_evaluetion+=grade
+    solved_problems_count+=1
+    last_problem=problem_name
+
+
+
+if has_failed:
+    print(f'You need a break, {bads_evaluetion} poor grades.')
+else:
+    print(f'Average score: {sums_evaluetion/solved_problems_count:.2f}')
+    print(f'Number of problems: {solved_problems_count}')
+    print(f'Last problem: {last_problem}')
+    
+3.
+needed_money= float(input())
+haved_money=float(input())
+money=0
+spended_days=0
+days=1
+
+while True:
+    act = input()
+    money=float(input())
+    if act == 'save':
+        haved_money += money
+        spended_days=0
+        if needed_money>=haved_money:
+            print(f'You saved the money for {days} days.')
+            break
+    elif act == 'spend':
+        haved_money-=money
+        if haved_money < 0:
+            haved_money=0
+        spended_days += 1
+        if spended_days==5:
+            print('You can′t save the money.')
+            print(days)
+            break
+    days+=1
+
+
+
+
+4.
+wished_steps=10000
+steps=0
+
+
+
+while steps < wished_steps:
+    command = input()
+    if command == 'Going home':
+        step_home = int(input())
+        steps+=step_home
+        break
+    step = int(command)
+    steps += step
+
+if steps>=wished_steps:
+    print('Goal reached! Good job!')
+
+else:
+    print(f'{wished_steps - steps} more steps to reach goal.')
+    
+ 
+ 5.
+ change=float(input()) * 100
+coins=0
+
+while change>0:
+    if change - 200>=0:
+        change-=200
+    elif change - 100>=0:
+        change-=100
+    elif change - 50>=0:
+        change-=50
+    elif change - 20>=0:
+        change-=20
+    elif change - 10>=0:
+        change-=10
+    elif change - 5>=0:
+        change-=5
+    elif change - 2>=0:
+        change-=2
+    elif change - 1>=0:
+        change-=1
+    coins+=1
+
+print(coins)
+
+
+6.
+needed_money=float(input())
+haved_money=float(input())
+spended_days=0
+days=0
+
+while haved_money < needed_money:
+    type=input()
+    money=float(input())
+    days+=1
+    if type=='save':
+        haved_money+=money
+        spended_days=0
+    elif type=='spend':
+        if money >= haved_money:
+            haved_money=0
+        else:
+            haved_money-=money
+        spended_days+=1
+        if spended_days >=5:
+            print('You can\'t save the money.')
+            print(days)
+            break
+
+if haved_money>=needed_money:
+    print(f'You saved the money for {days} days.')
+
+
