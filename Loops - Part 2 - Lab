@@ -1,0 +1,142 @@
+1.
+command = input()
+
+while command != 'Stop':
+    command = input()
+    
+    
+ 2.
+ username = input()
+password = input()
+data=input()
+
+while data !=password:
+    data=input()
+print(f'Welcome {username}!')
+
+
+3.
+current_input = input()
+sums=0
+
+while current_input != 'Stop':
+    current_number=int(current_input)
+    sums+=current_number
+    current_input=input()
+print(sums)
+
+
+4.
+n = int(input())
+counter=1
+
+while counter <= n:
+    print(counter)
+    counter=counter*2+1
+    
+5.
+increase_number=int(input())
+counter=0
+balance=0
+
+while counter < increase_number:
+    amount=float(input())
+    if amount<0:
+        print('Invalid operation!')
+        break
+
+    counter+=1
+    balance+=amount
+    print(f'Increase: {amount:.2f}')
+
+print(f'Total: {balance:.2f}')
+
+
+6.
+count_numbers=int(input())
+counter=0
+biggest_number=0
+while counter < count_numbers:
+    curr_number=int(input())
+    if counter==0:
+        biggest_number=curr_number
+    elif curr_number>biggest_number:
+        biggest_number=curr_number
+    counter +=1
+
+print(biggest_number)
+
+
+7.
+n = int(input())
+counter=0
+smallest_number=0
+
+while counter < n:
+    curr_number=int(input())
+
+    if counter==0:
+        smallest_number=curr_number
+    if curr_number<smallest_number:
+        smallest_number=curr_number
+    counter+=1
+
+print(smallest_number)
+
+
+8.
+name=input()
+gradueted_class=1
+sums=0
+gradueted_fails=0
+
+while gradueted_class <=12:
+    evaluetion=float(input())
+    if evaluetion >= 4:
+        gradueted_class+=1
+        sums+=evaluetion
+
+
+if gradueted_class>=13:
+    print(f'{name} graduated. Average grade: {sums/12:.2f}')
+
+
+9.
+name=input()
+graded_passed=1
+grades_failed=0
+total_evaluetion=0
+
+while graded_passed <= 12:
+    evaluetion = float(input())
+    if evaluetion >= 4:
+        graded_passed += 1
+        total_evaluetion+=evaluetion
+    else:
+        grades_failed+=1
+        if grades_failed == 2:
+            print(f'{name} has been excluded at {graded_passed} grade')
+            break
+
+if graded_passed==13:
+    print(f'{name} graduated. Average grade: {total_evaluetion/12:.2f}')
+    
+    
+10.
+wength=int(input())
+high=int(input())
+length=int(input())
+space=wength*high*length
+command=input()
+sums=0
+
+while command!='Done':
+    boxes=int(command)
+    sums+=boxes
+    if sums > space:
+        print(f'No more free space! You need {sums-space} Cubic meters more.')
+        break
+    command=input()
+
+if space > sums:
+    print(f'{space-sums} Cubic meters left.')
