@@ -1,0 +1,142 @@
+1.
+time_first = int(input())
+time_second = int(input())
+time_third = int(input())
+
+from math import floor
+total_time = time_first + time_second + time_third
+total_min = floor(total_time/60)
+sec = total_time % 60
+
+if sec < 10:
+    print(f'{total_min}:0{sec}')
+else:
+    print(f'{total_min}:{sec}')
+    
+    2.
+    points=int(input())
+bonus = 0
+extra_bonus = 0
+
+if points <= 100:
+    bonus = 5
+elif points > 1000:
+    bonus = points * 0.1
+else:
+    bonus = points * 0.2
+
+if points%2==0:
+    extra_bonus = 1
+elif points%5 ==0:
+    extra_bonus = 2
+total_bonus=bonus + extra_bonus
+
+print(total_bonus)
+print(points+total_bonus)
+
+
+3.
+speed = float(input())
+
+if speed <= 10:
+    print('slow')
+elif speed > 10 and speed <= 50:
+    print('average')
+elif speed > 50 and speed <= 150:
+    print('fast')
+elif speed > 150 and speed <= 1000:
+    print('ultra fast')
+else:
+    print('extremely fast')
+    
+    4.
+    number = float(input())
+unit_entry = input()
+unit_outcome = input()
+
+
+if unit_entry=='mm' and unit_outcome == 'm':
+    print(f'{number/1000:.3f}')
+elif unit_entry=='m' and unit_outcome =='mm':
+    print(f'{number*1000:.3f}')
+elif unit_entry=='m' and unit_outcome =='cm':
+    print(f'{number*100:.3f}')
+elif unit_entry=='cm' and unit_outcome =='m':
+    print(f'{number/100:.3f}')
+elif unit_entry=='cm' and unit_outcome=='mm':
+    print(f'{number*10:.3f}')
+elif unit_entry == 'mm' and unit_outcome == 'cm':
+    print(f'{number / 10:.3f}')
+    
+    5.
+    hour = int(input())
+minutes = int(input())
+result_minutes = minutes + 15
+
+if result_minutes < 60:
+    print(f'{hour}:{result_minutes}')
+elif result_minutes >= 60 and hour < 23 and (result_minutes - 60) < 9:
+    print(f'{hour+1}:0{result_minutes - 60}')
+elif result_minutes >= 60 and hour < 23 and (result_minutes - 60) > 9:
+    print(f'{hour + 1}:{result_minutes - 60}')
+elif result_minutes >= 60 and hour >=23 and (result_minutes - 60) > 9:
+    print(f'0:{result_minutes - 60}')
+elif result_minutes >= 60 and hour >=23 and (result_minutes - 60) < 9:
+    print(f'0:0{result_minutes - 60}')
+    
+    
+    6.
+    film_budget = float(input())
+extras_count = int(input())
+extras_price = float(input())
+
+price_all_extras = extras_count * extras_price
+decor_price = film_budget * 0.1
+
+if extras_count >= 150:
+    price_all_extras*=0.9
+total_money=price_all_extras + decor_price
+
+if total_money > film_budget:
+    print('Not enough money!')
+    print(f'Wingard needs {total_money-film_budget:.2f} leva more.')
+elif total_money <= film_budget:
+    print('Action!')
+    print(f'Wingard starts filming with {film_budget-total_money:.2f} leva left.')
+    
+    7.
+    sec_record = float(input())
+meters_distance = float(input())
+time = float(input())
+resistanse_of_water = meters_distance / 15 * 12.5
+from math import floor
+all_time = meters_distance * time + floor(meters_distance / 15) * 12.5
+
+
+if all_time < sec_record:
+    print(f'Yes, he succeeded! The new world record is {all_time:.2f} seconds.')
+elif all_time >= sec_record:
+    print(f'No, he failed! He was {all_time-sec_record:.2f} seconds slower.')
+    
+    8.
+    income = float(input())
+middle_success = float(input())
+min_paycheck = float(input())
+
+from math import floor
+social_scolarship = floor(min_paycheck*0.35)
+excelent_scolarship = floor(middle_success * 25)
+
+
+if income > min_paycheck and middle_success < 5.5:
+    print('You cannot get a scholarship!')
+elif income < min_paycheck and middle_success > 4.5 and middle_success < 5.5:
+    print(f'You get a Social scholarship {social_scolarship} BGN')
+elif income > min_paycheck and middle_success >=5.5:
+    print(f'You get a scholarship for excellent results {excelent_scolarship} BGN')
+elif income < min_paycheck and middle_success >=5.5 and social_scolarship==excelent_scolarship:
+    print(f'You get a scholarship for excellent results {excelent_scolarship} BGN')
+elif income < min_paycheck and middle_success >=5.5 and social_scolarship>excelent_scolarship:
+    print(f'You get a Social scholarship {social_scolarship} BGN')
+elif income < min_paycheck and middle_success >=5.5 and social_scolarship<excelent_scolarship:
+    print(f'You get a scholarship for excellent results {excelent_scolarship} BGN')
