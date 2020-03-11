@@ -1,0 +1,125 @@
+1.
+prr=int(input())
+pots_preparat=15
+dishes_preparat=5
+counter=0
+count_pots=0
+count_dishes=0
+preparat_total=0
+command=input()
+preparat_total = 750 * prr
+
+while command !='End':
+    vessels=int(command)
+    counter+=1
+    if counter % 3 ==0:
+        preparat_total-=(pots_preparat * vessels)
+        count_pots+=vessels
+    else:
+        preparat_total-=(dishes_preparat * vessels)
+        count_dishes+=vessels
+    if preparat_total < 0:
+        print(f'Not enough detergent, {abs(0-preparat_total)} ml. more necessary!')
+        break
+    command=input()
+
+if preparat_total >= 0:
+    print(f'Detergent was enough!')
+    print(f'{count_dishes} dishes and {count_pots} pots were washed.')
+    print(f'Leftover detergent {preparat_total} ml.')
+
+
+2.
+needed_sum=int(input())
+counter=0
+counter_kesh=0
+sum_kesh=0
+counter_card=0
+sum_card=0
+sum_total=0
+
+while sum_total < needed_sum:
+    command=input()
+    if command == 'End' and sum_total < needed_sum:
+        print('Failed to collect required money for charity.')
+        break
+    product=int(command)
+    counter+=1
+    if counter % 2 !=0:
+        if product >= 100:
+            print('Error in transaction!')
+        else:
+            print('Product sold!')
+            counter_kesh+=1
+            sum_kesh+=product
+            sum_total+=product
+    if counter % 2 ==0:
+        if product <=10:
+            print('Error in transaction!')
+        else:
+            print('Product sold!')
+            counter_card+=1
+            sum_card+=product
+            sum_total+=product
+
+if sum_total >= needed_sum:
+    print(f'Average CS: {sum_kesh/counter_kesh:.2f}')
+    print(f'Average CC: {sum_card/counter_card:.2f}')
+
+
+3.
+command=input()
+word=''
+counter=0
+count_c=0
+count_o=0
+count_n=0
+import  string
+
+while command!='End':
+    if command=='c':
+        count_c+=1
+        if count_c==1:
+            command=''
+        else:
+            command='c'
+    elif command=='o':
+        count_o+=1
+        if count_o==1:
+            command=''
+        else:
+            command='o'
+    elif command=='n':
+        count_n+=1
+        if count_n==1:
+            command=''
+        else:
+            command='n'
+    elif command not in list(string.ascii_letters):
+        command=''
+    if count_c>=1 and count_o >=1 and count_n >=1:
+        print(word,end=' ')
+        word=''
+        count_n=0
+        count_o=0
+        count_c=0
+    word+=command
+    command=input()
+
+
+4.
+for i in range(1,100):
+    if i % 3==0:
+        print(i)
+        
+5.
+n=int(input())
+counter=0
+sum=0
+
+for i in range(n):
+    number=int(input())
+    counter+=1
+    sum+=number
+
+print(f'{sum/counter:.2f}')
