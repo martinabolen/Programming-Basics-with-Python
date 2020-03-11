@@ -1,0 +1,186 @@
+1.
+incomes=float(input())
+month=int(input())
+personal_costs=float(input())
+
+unwelcome_costs=30/100 * incomes
+savings=incomes-(personal_costs+unwelcome_costs)
+total_savings=month*savings
+percent=savings/incomes * 100
+print(f'She can save {percent:.2f}%')
+print(f'{total_savings:.2f}')
+
+2.
+budget=int(input())
+towel=float(input())
+discount=int(input())
+
+umbrella=towel*2/3
+flipflops=umbrella*0.75
+bag=1/3*(towel+flipflops)
+total=towel+umbrella+flipflops+bag
+total=total-total*discount/100
+
+if budget>=total:
+    print(f'Annie\'s sum is {total:.2f} lv. She has {budget-total:.2f} lv. left.')
+else:
+    print(f'Annie\'s sum is {total:.2f} lv. She needs {total-budget:.2f} lv. more.')
+    
+    
+ 3.
+ cruise=input()
+cabbin=input()
+nights=int(input())
+
+if cruise=='Mediterranean':
+    if cabbin=='standard cabin':
+        price=27.5
+        total_price=price*4*nights
+    if cabbin =='cabin with balcony':
+        price=30.2
+        total_price = price * 4 * nights
+    if cabbin=='apartment':
+        price=40.5
+        total_price = price * 4 * nights
+elif cruise=='Adriatic':
+    if cabbin=='standard cabin':
+        price=22.99
+        total_price = price * 4 * nights
+    if cabbin =='cabin with balcony':
+        price=25
+        total_price = price * 4 * nights
+    if cabbin=='apartment':
+        price=34.99
+        total_price = price * 4 * nights
+elif cruise=='Aegean':
+    if cabbin=='standard cabin':
+        price=23
+        total_price = price * 4 * nights
+    if cabbin =='cabin with balcony':
+        price=26.6
+        total_price = price * 4 * nights
+    if cabbin=='apartment':
+        price=39.8
+        total_price = price * 4 * nights
+
+if nights > 7:
+    total_price*=0.75
+
+
+print(f'Annie\'s holiday in the {cruise} sea costs {total_price:.2f} lv.')
+
+
+4.
+name=input()
+games=int(input())
+average_points=0
+total_tennis_points=0
+total_volleyball_points=0
+count_volleyball=0
+count_tennis=0
+total_badminton_points=0
+count_badminton=0
+total_points=0
+from math import floor
+
+for i in range(games):
+    game=input()
+    if game=='volleyball':
+        volleyball_points=int(input())
+        volleyball_points=volleyball_points + volleyball_points * 0.07
+        total_volleyball_points+=volleyball_points
+        count_volleyball+=1
+        average_volleyball=floor(total_volleyball_points/count_volleyball)
+        total_points=total_points+volleyball_points
+    elif game=='tennis':
+        tennis_points=int(input())
+        tennis_points=tennis_points + tennis_points*0.05
+        total_tennis_points+=tennis_points
+        count_tennis+=1
+        average_tennis=floor(total_tennis_points/count_tennis)
+        total_points=total_points+ tennis_points
+    elif game=='badminton':
+        badminton_points=int(input())
+        badminton_points=badminton_points + badminton_points*0.02
+        total_badminton_points+=badminton_points
+        count_badminton+=1
+        average_badminton=floor(total_badminton_points/count_badminton)
+        total_points=total_points+badminton_points
+
+
+if average_volleyball >= 75 and average_tennis >=75 and average_badminton >= 75:
+    print(f'Congratulations, {name}! You won the cruise games with {floor(total_points)} points.')
+else:
+    print(f'Sorry, {name}, you lost. Your points are only {floor(total_points)}.')
+
+
+5.
+points=int(input())
+number_section_points=0
+double_ring_points=0
+triple_ring_points=0
+moves=0
+
+while points > 0:
+    type_game=input()
+    moves+=1
+    if type_game=='number section':
+        number_section_points=int(input())
+        points-=number_section_points
+    elif type_game=='double ring':
+        double_ring_points=int(input())
+        double_ring_points*=2
+        points=points-double_ring_points
+    elif type_game=='triple ring':
+        triple_ring_points= int(input())
+        triple_ring_points*=3
+        points-=triple_ring_points
+    elif type_game=='bullseye':
+        print(f'Congratulations! You won the game with a bullseye in {moves} moves!')
+        break
+
+if points==0:
+    print(f'Congratulations! You won the game in {moves} moves!')
+if points < 0:
+    print(f'Sorry, you lost. Score difference: {abs(points)}.')
+
+6.
+contens=int(input())
+cookies_total=0
+cakes_total=0
+waffles_total=0
+price_cookie=1.5
+price_cake=7.8
+price_waffles=2.30
+total_backs = 0
+type_cookie=''
+backs=0
+backs_total=0
+tot_total_sum=0
+
+for i in range(contens):
+    name = input()
+    cookies_total = 0
+    cakes_total = 0
+    waffles_total = 0
+    while type_cookie != 'Stop baking!':
+        type_cookie=input()
+        if type_cookie=='cookies':
+            cookies_count=int(input())
+            cookies_total+=cookies_count
+        elif type_cookie=='cakes':
+            cakes_count=int(input())
+            cakes_total+=cakes_count
+        elif type_cookie=='waffles':
+            waffles_count=int(input())
+            waffles_total+=waffles_count
+    type_cookie=''
+    total_sum=cookies_total*price_cookie+cakes_total*price_cake+waffles_total*price_waffles
+    print(f'{name} baked {cookies_total} cookies, {cakes_total} cakes and {waffles_total} waffles.')
+    backs = cookies_total + cakes_total + waffles_total
+
+    backs_total += backs
+    tot_total_sum+=total_sum
+
+print(f'All bakery sold: {backs_total}')
+print(f'Total sum for charity: {tot_total_sum:.2f} lv.')
