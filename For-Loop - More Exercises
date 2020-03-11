@@ -1,0 +1,164 @@
+1.
+moneys=float(input())
+year=int(input())
+spends=0
+age=18
+
+
+for i in range(1800,year+1):
+    if i % 2==0:
+        spends=12000
+        moneys-=spends
+    elif i % 2!=0:
+        spends=12000+50*age
+        moneys-=spends
+    age += 1
+
+if spends<=moneys:
+    print(f'Yes! He will live a carefree life and will have {moneys:.2f} dollars left.')
+else:
+    print(f'He will need {abs(moneys):.2f} dollars to survive.')
+
+
+2.
+period=int(input())
+doctors=7
+cared_pacients=0
+noncared_pacients=0
+day=0
+cared_total=0
+noncared_total=0
+
+for i in range(period):
+    pacients=int(input())
+    day+=1
+    if day % 3==0:
+        if noncared_total > cared_total:
+            doctors+=1
+    if doctors>=pacients:
+        cared_pacients=pacients
+        cared_total+=cared_pacients
+    else:
+        cared_pacients=doctors
+        noncared_pacients=pacients-doctors
+        noncared_total+=noncared_pacients
+        cared_total+=cared_pacients
+
+print(f'Treated patients: {cared_total}.')
+print(f'Untreated patients: {noncared_total}.')
+
+
+3.
+count=int(input())
+tons_total=0
+microbus_tons=0
+thruck_tons=0
+train_tons=0
+price_total=0
+
+for i in range(count):
+    tons=int(input())
+    tons_total+=tons
+    if tons <= 3:
+        price=200*tons
+        microbus_tons+=tons
+    elif tons >=4 and tons <= 11:
+        price=175*tons
+        thruck_tons+=tons
+    elif tons >=12:
+        price=120*tons
+        train_tons+=tons
+    price_total+=price
+
+print(f'{price_total/tons_total:.2f}')
+print(f'{microbus_tons/tons_total*100:.2f}%')
+print(f'{thruck_tons/tons_total*100:.2f}%')
+print(f'{train_tons/tons_total*100:.2f}%')
+
+
+4.
+students=int(input())
+grade_count=0
+grade2=0
+grade3=0
+grade4=0
+grade5=0
+grade_total=0
+
+for i in range(students):
+    grade=float(input())
+    grade_count+=1
+    if grade >= 2 and grade <= 2.99:
+        grade2+=1
+    elif grade >=3 and grade <= 3.99:
+        grade3+=1
+    elif grade >=4 and grade <= 4.99:
+        grade4+=1
+    elif grade >= 5:
+        grade5+=1
+    grade_total+=grade
+
+print(f'Top students: {grade5/students*100:.2f}%')
+print(f'Between 4.00 and 4.99: {grade4/students*100:.2f}%')
+print(f'Between 3.00 and 3.99: {grade3/students*100:.2f}%')
+print(f'Fail: {grade2/students*100:.2f}%')
+print(f'Average: {grade_total/students:.2f}')
+
+
+6.
+month=int(input())
+water=20
+internet=15
+electricity_total=0
+others_total=0
+
+for i in range(month):
+    electricity=float(input())
+    others=electricity+water+internet + 0.2*(electricity+water+internet)
+    electricity_total+=electricity
+    others_total+=others
+
+print(f'Electricity: {electricity_total:.2f} lv')
+print(f'Water: {water*month:.2f} lv')
+print(f'Internet: {internet*month:.2f} lv')
+print(f'Other: {others_total:.2f} lv')
+print(f'Average: {(electricity_total +water*month+internet*month+others_total)/month:.2f} lv')
+
+7.
+capacitet=int(input())
+fans=int(input())
+count_fans_a=0
+count_fans_b=0
+count_fans_v=0
+count_fans_g=0
+
+
+for i in range(fans):
+    sector=input()
+    if sector=='A':
+        count_fans_a+=1
+    elif sector == 'B':
+        count_fans_b+=1
+    elif sector == 'V':
+        count_fans_v+=1
+    elif sector == 'G':
+        count_fans_g+=1
+
+print(f'{count_fans_a/fans*100:.2f}%')
+print(f'{count_fans_b/fans*100:.2f}%')
+print(f'{count_fans_v/fans*100:.2f}%')
+print(f'{count_fans_g/fans*100:.2f}%')
+print(f'{fans/capacitet*100:.2f}%')
+
+
+9.
+for h in range(24):
+    for m in range(60):
+        print(f'{h} : {m}')
+
+
+10.
+for h in range(24):
+    for m in range(60):
+        for s in range(60):
+            print(f'{h} : {m} : {s}')
