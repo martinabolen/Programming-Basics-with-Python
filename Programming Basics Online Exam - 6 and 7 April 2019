@@ -1,0 +1,121 @@
+3.
+movie_name=input()
+hall=input()
+tickets=int(input())
+
+if movie_name=='A Star Is Born':
+    if hall=='normal':
+        price=7.5 * tickets
+    elif hall=='luxury':
+        price=10.5*tickets
+    elif hall=='ultra luxury':
+        price=13.5*tickets
+elif movie_name=='Bohemian Rhapsody':
+    if hall=='normal':
+        price=7.35 * tickets
+    elif hall=='luxury':
+        price=9.45*tickets
+    elif hall=='ultra luxury':
+        price=12.75*tickets
+elif movie_name=='Green Book':
+    if hall=='normal':
+        price=8.15 * tickets
+    elif hall=='luxury':
+        price=10.25*tickets
+    elif hall=='ultra luxury':
+        price=13.25*tickets
+elif movie_name=='The Favourite':
+    if hall=='normal':
+        price=8.75 * tickets
+    elif hall=='luxury':
+        price=11.55*tickets
+    elif hall=='ultra luxury':
+        price=13.95*tickets
+
+print(f'{movie_name} -> {price:.2f} lv.')
+
+
+4.
+voucher=int(input())
+command=input()
+ticket_count=0
+others_count=0
+
+
+while command != 'End':
+    purchase=command
+    if len(purchase) > 8:
+        price=ord(purchase[0])+ord(purchase[1])
+        ticket_count+=1
+        if price > voucher:
+            ticket_count-=1
+            break
+    elif len(purchase) <= 8:
+        price=ord(purchase[0])
+        others_count += 1
+        if price > voucher:
+            others_count-=1
+            break
+    voucher-=price
+
+    command=input()
+
+print(ticket_count)
+print(others_count)
+
+5.
+n=int(input())
+rating_total=0
+highest_rating=-99999
+min_rating=99999
+
+for i in range(n):
+    movie=input()
+    rating=float(input())
+    rating_total+=rating
+    if rating > highest_rating:
+        highest_rating=rating
+        curr_high_movie=movie
+    if rating < min_rating:
+        min_rating=rating
+        curr_min_movie=movie
+
+print(f'{curr_high_movie} is with highest rating: {highest_rating:.1f}')
+print(f'{curr_min_movie} is with lowest rating: {min_rating:.1f}')
+print(f'Average rating: {rating_total/n:.1f}')
+
+
+6.
+command=input()
+student_tickets=0
+count_tickets=0
+standart_tickets=0
+kid_tickets=0
+count_total=0
+
+
+while command != 'Finish':
+    movie=command
+    free_places=int(input())
+    type=input()
+    count_tickets=0
+    while type!='End':
+        count_tickets+=1
+        if type=='student':
+            student_tickets+=1
+        elif type=='standard':
+            standart_tickets+=1
+        elif type=='kid':
+            kid_tickets+=1
+        if count_tickets>=free_places:
+            break
+        type=input()
+    print(f'{movie} - {count_tickets/free_places*100:.2f}% full.')
+    count_total+=count_tickets
+    command=input()
+
+if command=='Finish':
+    print(f'Total tickets: {count_total}')
+    print(f'{student_tickets/count_total*100:.2f}% student tickets.')
+    print(f'{standart_tickets/count_total*100:.2f}% standard tickets.')
+    print(f'{kid_tickets/count_total*100:.2f}% kids tickets.')
