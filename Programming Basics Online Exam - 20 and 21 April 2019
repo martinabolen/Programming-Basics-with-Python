@@ -1,0 +1,78 @@
+4.
+eggs=int(input())
+sold_eggs=0
+
+while True:
+    command=input()
+    if command=='Close':
+        print(f'Store is closed!')
+        print(f"{sold_eggs} eggs sold.")
+        break
+    eggs_new=int(input())
+    if eggs_new>eggs and command=='Buy':
+        print(f'Not enough eggs in store!')
+        print(f'You can buy only {eggs}.')
+        break
+    if command=='Buy':
+        eggs-=eggs_new
+        sold_eggs+=eggs_new
+    elif command=='Fill':
+        eggs+=eggs_new
+
+
+5.
+count=int(input())
+max_sugar=-99999
+max_flour=-99999
+sugar_total=0
+flour_total=0
+from math import ceil
+
+for i in range(count):
+    sugar=int(input())
+    flour=int(input())
+    if sugar>max_sugar:
+        max_sugar=sugar
+    if flour>max_flour:
+        max_flour=flour
+    sugar_total+=sugar
+    flour_total+=flour
+
+pakets_sugar=ceil(sugar_total/950)
+packets_flour=ceil(flour_total/750)
+
+print(f'Sugar: {pakets_sugar}')
+print(f'Flour: {packets_flour}')
+print(f'Max used flour is {max_flour} grams, max used sugar is {max_sugar} grams.')
+
+
+6.
+clients=int(input())
+price_total_all=0
+price_total=0
+
+for i in range(clients):
+    command = input()
+    items = 0
+    price_total = 0
+    while True:
+        if command == 'Finish':
+            if items % 2==0:
+                price_total*=0.8
+            price_total_all += price_total
+            print(f'You purchased {items} items for {price_total:.2f} leva.')
+            break
+        purchase=command
+        items+=1
+        if purchase=='basket':
+            price=1.5
+        elif purchase=='wreath':
+            price=3.8
+        elif purchase=='chocolate bunny':
+            price=7
+        price_total+=price
+        command=input()
+
+
+
+print(f'Average bill per client is: {price_total_all/clients:.2f} leva.')
