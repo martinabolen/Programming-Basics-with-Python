@@ -1,0 +1,98 @@
+3.
+weight=int(input())
+high=int(input())
+depth=int(input())
+priority=input()
+volume=weight*high*depth
+tax=0
+
+if volume > 50 and volume <= 100:
+    if priority=='true':
+        tax=0
+    elif priority=='false':
+        tax=25
+elif volume > 100 and volume <=200:
+    if priority=='true':
+        tax=10
+    elif priority=='false':
+        tax=50
+elif volume > 200 and volume <= 300:
+    if priority=='true':
+        tax=20
+    elif priority=='false':
+        tax=100
+
+print(f'Luggage tax: {tax:.2f}')
+
+
+4.
+command=input()
+price=0
+lv=price*1.96
+min_minutes=999999
+
+
+while command != 'End':
+    ticket_number=command
+    price = float(input())
+    minutes = int(input())
+    if minutes < min_minutes:
+        min_minutes=minutes
+        current_ticket_number=ticket_number
+        current_price=price
+    command=input()
+
+h=min_minutes//60
+m=min_minutes%60
+
+time=f'{h}h {m}m'
+
+
+if command=='End':
+    print(f'Ticket found for flight {current_ticket_number} costs {current_price*1.96:.2f} leva with {time} stay')
+
+
+5.
+tickets=int(input())
+import string
+
+for i in range(tickets):
+    number=input()
+    if len(number)==4 and number[0] in string.ascii_uppercase:
+        seat=f'{number[0]}{number[1]}{number[2]}'
+        print(f'Seat decoded: {seat}')
+    elif len(number)==4 and number[0] not in string.ascii_uppercase:
+        seat = f'{number[3]}{number[1]}{number[2]}'
+        print(f'Seat decoded: {seat}')
+    elif len(number)==5 or len(number)==6:
+        seat = f'{number[0]}{ord(number[1])}'
+        print(f'Seat decoded: {seat}')
+
+
+6.
+days=int(input())
+product=0
+left_money=0
+command=''
+balance=60
+
+for i in range(days):
+    product=0
+    money_for_the_day = 0
+    while True:
+        command = input()
+        if command == 'Day over':
+            left_money = balance - money_for_the_day
+            balance+=left_money
+            print(f'Money left from today: {left_money:.2f}. You\'ve bought {product} products.')
+            break
+        money=int(command)
+        money_for_the_day+=money
+        product+=1
+        if money > balance:
+            money_for_the_day-=money
+            product-=1
+        if money_for_the_day>=balance:
+            print(f'Daily limit exceeded! You\'ve bought {product} products.')
+            money_for_the_day+=left_money
+            break
