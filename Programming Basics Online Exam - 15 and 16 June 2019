@@ -1,0 +1,82 @@
+4.
+capacitet=int(input())
+command=input()
+total_price=0
+total_people=0
+
+while True:
+    if command =='Movie time!':
+        print(f'There are {capacitet-total_people} seats left in the cinema.')
+        break
+    people = int(command)
+    total_people+=people
+    if total_people > capacitet:
+        print(f'The cinema is full.')
+        break
+    price=people*5
+    total_price+=price
+    if people % 3 ==0:
+        total_price-=5
+    command=input()
+
+
+print(f'Cinema income - {total_price} lv.')
+
+
+5.
+budget=float(input())
+serials=int(input())
+price_total=0
+
+for i in range(serials):
+    name=input()
+    price=float(input())
+    if name =='Thrones':
+        price*=0.5
+    elif name=='Lucifer':
+        price*=0.6
+    elif name =='Protector':
+        price*=0.7
+    elif name == 'TotalDrama':
+        price*=0.8
+    elif name == 'Area':
+        price*=0.9
+    price_total+=price
+
+if budget >= price_total:
+    print(f'You bought all the series and left with {budget-price_total:.2f} lv.')
+else:
+    print(f'You need {price_total-budget:.2f} lv. more to buy the series!')
+
+
+6.
+command=input()
+counter=0
+max_points=-999999
+curr_movie=''
+import string
+flag=False
+
+while command != 'STOP':
+    points_total = 0
+    movie=command
+    for letter in movie:
+        points_movie=ord(letter)
+        if letter in string.ascii_lowercase:
+            points_movie=points_movie-2*len(movie)
+        elif letter in string.ascii_uppercase:
+            points_movie-=len(movie)
+        else:
+            points_movie=points_movie
+        points_total+=points_movie
+    if points_total>max_points:
+        max_points=points_total
+        curr_movie=movie
+    counter+=1
+    if counter==7:
+        print('The limit is reached.')
+        break
+    command = input()
+
+
+print(f'The best movie for you is {curr_movie} with {max_points} ASCII sum.')
