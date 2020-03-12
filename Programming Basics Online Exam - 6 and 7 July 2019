@@ -1,0 +1,115 @@
+5.1
+sold_games=int(input())
+Hearthstone_count=0
+Fornite_count=0
+Overwatch_count=0
+Others_count=0
+Hearthstone_percent=0
+Fornite_percent=0
+Overwatch_percent=0
+Others_percent=0
+
+
+for i in range(sold_games):
+    game=input()
+    if game=='Hearthstone':
+        Hearthstone_count+=1
+        Hearthstone_percent=Hearthstone_count/sold_games*100
+    elif game=='Fornite':
+        Fornite_count+=1
+        Fornite_percent=Fornite_count/sold_games*100
+    elif game=='Overwatch':
+        Overwatch_count+=1
+        Overwatch_percent=Overwatch_count/sold_games*100
+    else:
+        Others_count+=1
+        Others_percent=Others_count/sold_games*100
+
+
+print(f'Hearthstone - {Hearthstone_percent:.2f}%')
+print(f'Fornite - {Fornite_percent:.2f}%')
+print(f'Overwatch - {Overwatch_percent:.2f}%')
+print(f'Others - {Others_percent:.2f}%')
+
+
+5.2
+team=input()
+games=int(input())
+played_games=0
+winned_games=0
+loosed_games=0
+equal_games=0
+points=0
+
+for i in range(games):
+    result=input()
+    played_games+=1
+    if result=='W':
+        points+=3
+        winned_games+=1
+    elif result=='D':
+        points+=1
+        equal_games+=1
+    elif result=='L':
+        loosed_games+=1
+
+if games==0:
+    print(f'{team} hasnt played any games during this season.')
+else:
+    print(f'{team} has won {points} points during this season.')
+    print(f'Total stats:')
+    print(f'## W: {winned_games}')
+    print(f'## D: {equal_games}')
+    print(f'## L: {loosed_games}')
+    print(f'Win rate: {winned_games/played_games*100:.2f}%')
+    
+    
+    
+ 6.1
+ command=input()
+points=0
+max_points=-999999
+curr_name=0
+
+while command != 'Stop':
+    name=command
+    points=0
+    for letter in name:
+        n=int(input())
+        if ord(letter)==n:
+            points+=10
+        else:
+            points+=2
+    if points >= max_points:
+        max_points=points
+        curr_name=name
+    command=input()
+
+print(f'The winner is {curr_name} with {max_points} points!')
+
+
+
+6.2
+command=input()
+sums=0
+max_sum=-9999999
+current_word=''
+from math import floor
+
+
+while command!='End of words':
+    word=command
+    sums=0
+    for letter in word:
+        a=ord(letter)
+        sums+=a
+    if str.lower(word[0])=='a' or str.lower(word[0])=='e' or str.lower(word[0])=='o' or str.lower(word[0])=='i' or str.lower(word[0])=='u' or str.lower(word[0])=='y':
+        sums *=len(word)
+    else:
+        sums=floor(sums/len(word))
+    if sums > max_sum:
+        max_sum = sums
+        current_word = word
+    command=input()
+
+print(f'The most powerful word is {current_word} - {max_sum}')
